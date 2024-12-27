@@ -14,7 +14,7 @@ const footer: React.FC = () => {
       initial="hidden"
       animate="visible"
       variants={listVarients}
-      className="flex text-xl justify-around px-8 pb-16 pt-4 font-semiboldlight border-t-2 dark:dark"
+      className="flex text-xl justify-around px-8 pb-16 pt-4 font-semiboldlight border-t-2 bg-common text-common"
     >
       <motion.li variants={itemVarients}>
         <Link to="/policy">Privacy policy</Link>

@@ -2,17 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.light {
-  @apply bg-gray-100 text-gray-900;
+.text-common {
+  @apply text-gray-900 dark:text-white;
 }
 
-.dark {
-  @apply bg-gray-900 text-gray-100;
-}
-button.light {
-  @apply bg-blue-500 text-white hover:bg-blue-600;
+.bg-common {
+  @apply bg-white dark:bg-slate-900;
 }
 
-button.dark {
-  @apply bg-blue-700 text-white hover:bg-blue-800;
+.button-hover {
+  @apply hover:text-cyan-500 dark:hover:text-blue-400 hover:underline;
 }

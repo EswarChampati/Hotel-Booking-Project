@@ -9,7 +9,7 @@ const UserLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className="min-h-screen ">
       <Header />
-      <div className="py-56">{children}</div>
+      <div className="py-60 text-common bg-common">{children}</div>
 
       <Footer />
     </div>
