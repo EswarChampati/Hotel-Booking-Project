@@ -8,7 +8,7 @@ const Header = () => {
       </div>
 
       <section className="py-2 space-x-12">
-        <AnimatedButton to="/Signup">Register</AnimatedButton>
+        <AnimatedButton to="/register">Register</AnimatedButton>
         <AnimatedButton to="/Signin">Login</AnimatedButton>
         <ToggleTheme />
       </section>
