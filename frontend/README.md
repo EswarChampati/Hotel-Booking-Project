@@ -14,3 +14,14 @@
     - Create the Layout folder and create the userLayout component which takes the children to add in between header and footer component.
     - Configure the Layout Component in the App.tsx file.
     - create the common classes in for dark mode in the index.css file.
+
+2.  - create the register.tsx file in the pages. configure the register component to the /register route in the Header.tsx and also app.tsx
+    - install the react hook form and develop the form.
+    - to reduce the side of the register component in the pages divide it into the multiple components like inputFeild.tsx and passwordFeild.tsx which is for the inputs feilds and the password field. Do the prop validation using the typescript.
+    - create the wrapepr component in the App.ts becasue that component is specifc to that routes in app so place it there itslef. it is used for the smother transitions between the pages.
+    - create the types folder and in the create the user.d.ts file which is the declarative type which export the registerFormData type for the useForm hook in the Register.ts component.
+    - create the apiClient.ts in the src which sends the request to the backend. it is command for every backend request.
+    - create the services folder and in the create the userService.ts which sends to the request to the user route in the backend. userService.ts contains the createUser function which is response for calling the register route via api-client.ts file.
+    - created the animations folder in that storing the variants for each component. delayChild.Variants.ts file import in the Register.tsx and footer.tsx similarly for the fadeTopButtom.variants.ts
+
+- install the react query library. wrap the app with the queryClientProvider with props as client.

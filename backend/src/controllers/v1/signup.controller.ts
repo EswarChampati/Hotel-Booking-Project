@@ -9,7 +9,7 @@ import { USER_ALREADT_EXISTS } from "../../constants/errorMessage";
 type IUserReqBody = Pick<
   IUser,
   "email" | "firstName" | "lastName" | "password"
->;  
+>;
 const registerUser = async (
   req: Request<{}, {}, IUserReqBody>,
   res: Response
@@ -24,7 +24,6 @@ const registerUser = async (
       });
       return;
     }
-
     const createUser = await UserModel.create(req.body);
     const token = generateToken({ userId: createUser._id });
 

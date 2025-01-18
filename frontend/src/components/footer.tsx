@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
-import { motion, Variants } from "framer-motion";
-const listVarients: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.5 } },
-};
-const itemVarients: Variants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
-};
+import { motion } from "framer-motion";
+import { delayChildVarients as listVarients } from "../animations/delayChild.variants";
+import { itemVarients } from "../animations/fadeTopToButton.variants";
+
 const footer: React.FC = () => {
   return (
     <motion.ul
