@@ -107,3 +107,7 @@
 ### 3.6 constants/routes
 
 - In the **`ROUTES`** object, for the _users_ key, add the **`SIGNIN`** key with the value **`/signin`**.
+
+### 3.7 app.ts
+
+- add the cors options to the **`app.ts`** in the backend to allow the request from the frontend to the backend.

@@ -25,3 +25,4 @@
     - created the animations folder in that storing the variants for each component. delayChild.Variants.ts file import in the Register.tsx and footer.tsx similarly for the fadeTopButtom.variants.ts
 
 - install the react query library. wrap the app with the queryClientProvider with props as client.
+- use the useMutation function that takes the arguments the createUSer which is inside the userService file.
