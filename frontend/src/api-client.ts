@@ -3,7 +3,7 @@ const apiClient = async (url: string, options: RequestInit = {}) => {
   const headers = {
     "Content-Type": "application/json",
   };
-  const response = await fetch(`${API_BASE_URL}${url}`, {
+  const response = await fetch(` ${API_BASE_URL}${url}`, {
     ...options,
     headers,
   });

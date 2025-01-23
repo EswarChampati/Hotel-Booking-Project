@@ -16,29 +16,26 @@ const Register: React.FC = () => {
     formState: { errors },
   } = useForm<RegisterFormData>();
 
-  const mutation = useMutation<UserResponse, Error, RegisterFormData>(
-    createUser,
-    {
-      onSuccess: () => {
-        console.log("Registration successful");
-      },
-      onError: (err: Error) => {
-        console.error("Error during registration:", err.message);
-      },
-    }
-  );
-
-  const onSubmit = handleSubmit((data: RegisterFormData) => {
-    mutation.mutate(data);
-    console.log(data);
+  const mutation = useMutation<UserResponse, Error, RegisterFormData>({
+    mutationFn: createUser,
+    onSuccess: (data: UserResponse) => {
+      console.log("Registration successful", data);
+    },
+    onError: (err: Error) => {
+      console.error("Error during registration:", err?.message);
+    },
   });
+
+  const onSubmit = (data: RegisterFormData) => {
+    mutation.mutate(data);
+  };
 
   return (
     <motion.form
       initial="hidden"
       animate="visible"
       variants={delayChildVarients}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col mx-auto  w-full max-w-xl"
     >
       <h1 className="font-bold text-3xl flex-start py-3 self-center mb-4">
@@ -117,11 +114,11 @@ const Register: React.FC = () => {
         />
       </motion.div>
       <motion.button
-        className="hover:underline border self-center w-3/12 mt-3 py-2 font-semibold  rounded-2xl bg-common text-common button-hover "
+        className=" border self-center w-3/12 mt-3 py-2 font-semibold  rounded-2xl bg-common text-common hover:text-cyan-500 dark:hover:text-blue-400"
         whileTap={{ scale: 0.8, transition: { duration: 0.5 } }}
         whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
       >
-        Create button
+        Create User
       </motion.button>
     </motion.form>
   );
