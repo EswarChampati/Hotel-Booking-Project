@@ -1,11 +1,12 @@
 export const ROUTES = {
   API: {
     V1: {
-      USERS: {
-        BASE: "/api/v1/users",
+      AUTH: {
         REGISTER: "/register",
         LOGIN: "/login",
+        VALIDATE_TOKEN: "/validate-token",
       },
+      BASE: "/api/v1/auth",
     },
   },
 };

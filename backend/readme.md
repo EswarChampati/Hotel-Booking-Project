@@ -57,7 +57,7 @@
 
 ### 2.7 Routes
 
-- Create a **`routes/v1`** folder and add **`users.ts`**:
+- Create a **`routes/v1`** folder and add **`auth.ts`**:
   - This file will hold all the user routes.
   - Mount the **`validateUserSignUp.ts`** middleware along with the **`signup.controller.ts`** controller under the `/register` route.
 - Mount the user router to **`app.ts`** using `app.use()`.
@@ -111,3 +111,13 @@
 ### 3.7 app.ts
 
 - add the cors options to the **`app.ts`** in the backend to allow the request from the frontend to the backend.
+
+---
+
+##
+
+### validate route
+
+- modified the users.ts in routes to auth.ts routes casue register and login comes under the authentication.
+- created the validateToken.ts file in middlewareto validate the token.
+- installed the cookie-parser and its types to easily access the cookie from body instead of from the req.headers.

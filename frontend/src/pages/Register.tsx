@@ -6,9 +6,16 @@ import { RegisterFormData, UserResponse } from "../types/user";
 import { delayChildVarients } from "../animations/delayChild.variants";
 import { itemVarients } from "../animations/fadeTopToButton.variants";
 import { useMutation } from "@tanstack/react-query";
-import { createUser } from "../services/userService";
+import { createUser } from "../services/authService";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store";
+import { showToast } from "../store/slices/toastSlice";
+import { NavigateFunction, useNavigate } from "react-router-dom";
+import { login } from "../store/slices/authSlice";
 
 const Register: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate: NavigateFunction = useNavigate();
   const {
     register,
     handleSubmit,
@@ -18,11 +25,15 @@ const Register: React.FC = () => {
 
   const mutation = useMutation<UserResponse, Error, RegisterFormData>({
     mutationFn: createUser,
-    onSuccess: (data: UserResponse) => {
-      console.log("Registration successful", data);
+    onSuccess: (data) => {
+      dispatch(showToast({ message: "User Created", type: "SUCCESS" }));
+
+      dispatch(login({ userId: data._id }));
+
+      navigate("/");
     },
     onError: (err: Error) => {
-      console.error("Error during registration:", err?.message);
+      dispatch(showToast({ message: err.message, type: "FAILURE" }));
     },
   });
 

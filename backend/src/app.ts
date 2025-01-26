@@ -1,19 +1,20 @@
 import express, { Application } from "express";
 import cors from "cors";
-import users from "./routes/v1/users";
+import auth from "./routes/v1/auth";
 import { ROUTES } from "./constants/routes";
+import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
 const corsOptions = {
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: process.env.FRONTEND_URL,
   credentials: true,
 };
 
+app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(ROUTES.API.V1.USERS.BASE, users);
+app.use(ROUTES.API.V1.BASE, auth);
 
 export default app;

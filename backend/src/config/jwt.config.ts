@@ -23,7 +23,7 @@ export const generateToken = (
 
 export const verifyToken = (
   token: string,
-  options: VerifyOptions
+  options?: VerifyOptions
 ): string | JwtPayload => {
   try {
     return jwt.verify(token, jwtConfig.secretKey, options);

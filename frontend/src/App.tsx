@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Register from "./pages/Register";
 import { AnimatePresence, motion, Variants } from "framer-motion";
+import useValidToken from "./hooks/useValidToken";
 
 const pageVariants: Variants = {
   initial: { x: "100%", opacity: 0 },
@@ -38,7 +39,7 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => (
 
 function App() {
   const location = useLocation();
-
+  useValidToken();
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
