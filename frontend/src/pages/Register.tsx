@@ -27,9 +27,7 @@ const Register: React.FC = () => {
     mutationFn: createUser,
     onSuccess: (data) => {
       dispatch(showToast({ message: "User Created", type: "SUCCESS" }));
-
       dispatch(login({ userId: data._id }));
-
       navigate("/");
     },
     onError: (err: Error) => {

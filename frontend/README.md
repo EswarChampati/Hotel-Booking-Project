@@ -56,3 +56,14 @@
 - Create a custom hook to call **`validToken`**. Use **`useEffect`** to initiate the request and dispatch the result.
 - Call the custom hook in **`App.tsx`**.
 - Dispatch an action in the **onSuccess** callback of **`useMutation`** to hide the **register** and **login** options when a user is created.
+
+---
+
+### 5. Signin component, logout, adding the events for navigating the pages
+
+- create the signIn componnet in pages using the useForm hook and route in app.ts
+- In auth service create the login function which is used to call the backend Signin route.
+- update the props of the animatedButton to have the onClick handler.
+- Create the lagout in the services/authServices.ts file and handle the data in api-client.ts with the empty object.
+- create the useLagout customHook in the hooks folder that returns the onClick handle for that AnimatedButton.
+- adding inputRef and onKeyDown props to the InputFeild.tsx and Passwordfeild.tsx

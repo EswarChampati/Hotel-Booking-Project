@@ -1,5 +1,6 @@
 import apiClient from "../api-client";
 import { RegisterFormData, UserResponse } from "../types/user";
+import { SignInFormData } from "../pages/Signin";
 
 export const createUser = async (
   data: RegisterFormData
@@ -21,4 +22,20 @@ export const validToken = async () => {
   } catch (err) {
     throw new Error((err as Error).message || "Token validation failed");
   }
+};
+
+export const login = async (data: SignInFormData) => {
+  const random = await apiClient("/api/v1/auth/login", {
+    method: "POST",
+    body: JSON.stringify(data),
+    credentials: "include",
+  });
+  return random;
+};
+
+export const logout = async () => {
+  await apiClient("/api/v1/auth/logout", {
+    credentials: "include",
+    method: "POST",
+  });
 };

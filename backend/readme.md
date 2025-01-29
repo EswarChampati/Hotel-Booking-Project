@@ -121,3 +121,8 @@
 - modified the users.ts in routes to auth.ts routes casue register and login comes under the authentication.
 - created the validateToken.ts file in middlewareto validate the token.
 - installed the cookie-parser and its types to easily access the cookie from body instead of from the req.headers.
+
+### logout route
+
+- add the logout in the constants folder under routes.
+- create the logout post request in the auth.ts of the routes folder.

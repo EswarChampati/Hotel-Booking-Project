@@ -10,6 +10,7 @@ import {
 import Register from "./pages/Register";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import useValidToken from "./hooks/useValidToken";
+import SignIn from "./pages/Signin";
 
 const pageVariants: Variants = {
   initial: { x: "100%", opacity: 0 },
@@ -57,6 +58,16 @@ function App() {
             <PageWrapper>
               <UserLayout>
                 <Register />
+              </UserLayout>
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PageWrapper>
+              <UserLayout>
+                <SignIn />
               </UserLayout>
             </PageWrapper>
           }

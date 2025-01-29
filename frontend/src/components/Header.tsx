@@ -2,8 +2,10 @@ import { useSelector } from "react-redux";
 import AnimatedButton from "./AnimatedButton";
 import ToggleTheme from "./ToggleTheme";
 import { RootState } from "../store";
+import useLagout from "../hooks/useLagout";
 
 const Header = () => {
+  const handleLagout = useLagout();
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   );
@@ -18,12 +20,14 @@ const Header = () => {
           <>
             <AnimatedButton to="/my-bookings">My Bookings</AnimatedButton>
             <AnimatedButton to="/my-hotels">My hotels</AnimatedButton>
-            <AnimatedButton to="/logout">logout</AnimatedButton>
+            <AnimatedButton to="/logout" onClick={handleLagout}>
+              logout
+            </AnimatedButton>
           </>
         ) : (
           <>
             <AnimatedButton to="/register">Register</AnimatedButton>
-            <AnimatedButton to="/Signin">Login</AnimatedButton>
+            <AnimatedButton to="/login">Login</AnimatedButton>
           </>
         )}
         <ToggleTheme />
