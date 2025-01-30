@@ -7,8 +7,7 @@ type InputFeildProps = {
   name: string;
   validationRules?: object;
   errors: any;
-  inputRef: React.Ref<HTMLInputElement>;
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  autoFocus?: boolean;
 };
 
 const InputFeild: React.FC<InputFeildProps> = ({
@@ -19,16 +18,13 @@ const InputFeild: React.FC<InputFeildProps> = ({
   name,
   validationRules,
   errors,
-  inputRef,
-  onKeyDown,
+  autoFocus,
 }) => {
   return (
     <label className="font-bold px-2 py-1 my-10 flex-1 text-common bg-common">
       {label}
       <input
-        autoComplete="off"
-        ref={inputRef}
-        onKeyDown={onKeyDown}
+        autoFocus={autoFocus}
         type={type}
         placeholder={placeholder}
         className="border rounded font-normal w-full my-1 py-2 px-2 dark:text-black placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"

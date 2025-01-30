@@ -1,5 +1,4 @@
-import Light from "../assets/sun.svg";
-import Dark from "../assets/moon.svg";
+import { BsMoon, BsSun } from "react-icons/bs";
 import useTheme from "../hooks/useTheme";
 
 const ToggleTheme: React.FC = () => {
@@ -7,9 +6,9 @@ const ToggleTheme: React.FC = () => {
   return (
     <button onClick={themeClickHandler}>
       {isDarkMode ? (
-        <img src={Dark} alt="Dark" />
+        <BsMoon className="text-xl " />
       ) : (
-        <img src={Light} alt="Light" />
+        <BsSun className="text-xl" />
       )}
     </button>
   );

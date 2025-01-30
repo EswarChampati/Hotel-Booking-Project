@@ -9,6 +9,7 @@ const Header = () => {
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   );
+
   return (
     <div className="flex justify-between items-center px-32 border-b-2 py-2 container mx-auto text-common bg-common">
       <div className="flex">

@@ -26,7 +26,6 @@ router.post(ROUTES.API.V1.AUTH.LOGOUT, (req: Request, res: Response) => {
     expires: new Date(0),
   });
   res.send();
-  // res.status(200).json({ msg: "Token Deleted" });
 });
 
 export default router;

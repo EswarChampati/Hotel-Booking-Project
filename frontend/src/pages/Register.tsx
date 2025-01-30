@@ -2,20 +2,12 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import InputFeild from "../components/InputFeild";
 import PasswordFeild from "../components/PasswordFeild";
-import { RegisterFormData, UserResponse } from "../types/user";
+import { RegisterFormData } from "../types/user";
 import { delayChildVarients } from "../animations/delayChild.variants";
 import { itemVarients } from "../animations/fadeTopToButton.variants";
-import { useMutation } from "@tanstack/react-query";
-import { createUser } from "../services/authService";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store";
-import { showToast } from "../store/slices/toastSlice";
-import { NavigateFunction, useNavigate } from "react-router-dom";
-import { login } from "../store/slices/authSlice";
+import useAuthMutation from "../hooks/useAuthMutation";
 
 const Register: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const navigate: NavigateFunction = useNavigate();
   const {
     register,
     handleSubmit,
@@ -23,17 +15,7 @@ const Register: React.FC = () => {
     formState: { errors },
   } = useForm<RegisterFormData>();
 
-  const mutation = useMutation<UserResponse, Error, RegisterFormData>({
-    mutationFn: createUser,
-    onSuccess: (data) => {
-      dispatch(showToast({ message: "User Created", type: "SUCCESS" }));
-      dispatch(login({ userId: data._id }));
-      navigate("/");
-    },
-    onError: (err: Error) => {
-      dispatch(showToast({ message: err.message, type: "FAILURE" }));
-    },
-  });
+  const mutation = useAuthMutation("register");
 
   const onSubmit = (data: RegisterFormData) => {
     mutation.mutate(data);
@@ -60,6 +42,7 @@ const Register: React.FC = () => {
             name="firstName"
             validationRules={{ required: "This field is required" }}
             errors={errors}
+            autoFocus={true}
           />
         </motion.div>
 
@@ -90,7 +73,6 @@ const Register: React.FC = () => {
         <PasswordFeild
           label="Password"
           placeholder="Enter the password"
-          type="password"
           register={register}
           name="password"
           validationRules={{
@@ -108,7 +90,6 @@ const Register: React.FC = () => {
         <PasswordFeild
           label="Confirm Password"
           placeholder="Re-Enter the password"
-          type="password"
           register={register}
           name="confirmPassword"
           validationRules={{

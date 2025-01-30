@@ -9,11 +9,19 @@ const useValidToken = () => {
 
   const checkToken = async () => {
     try {
+      const storedUser = localStorage.getItem("user");
+      if (!storedUser) {
+        dispatch(logout());
+        return;
+      }
+      const { userName } = JSON.parse(storedUser);
+
       const data = await validToken();
-      dispatch(login(data.userId));
+      dispatch(login({ userId: data.userId, userName: userName }));
     } catch (err) {
-      console.log(err);
+      console.log("token valdiation failed", err);
       dispatch(logout());
+      localStorage.removeItem("user");
     }
   };
 

@@ -61,9 +61,13 @@
 
 ### 5. Signin component, logout, adding the events for navigating the pages
 
-- create the signIn componnet in pages using the useForm hook and route in app.ts
+- Create the signIn componnet in pages using the useForm hook and route in app.ts
 - In auth service create the login function which is used to call the backend Signin route.
-- update the props of the animatedButton to have the onClick handler.
+- Update the props of the animatedButton to have the onClick handler.
 - Create the lagout in the services/authServices.ts file and handle the data in api-client.ts with the empty object.
-- create the useLagout customHook in the hooks folder that returns the onClick handle for that AnimatedButton.
-- adding inputRef and onKeyDown props to the InputFeild.tsx and Passwordfeild.tsx
+- Create the useLagout customHook in the hooks folder that returns the onClick handle for that AnimatedButton.
+- Add the autFoucs prop to the InputField which is used to autofoucs email feild in the Signin.tsx and firstname in the Register.tsx
+- Created the useAuthMutation custom hook in the hooks which return the mutation function which is returned by the useMutation().
+- Installed the react-icons and change the toggleTheme.tsx component and also implemented the password shown ability.
+- Modified the authSlice that when login we need to pass the userName also and similarly modify the dispatch in useAuthDispatch() and create the key userName in the localStorage and add the userName.
+-

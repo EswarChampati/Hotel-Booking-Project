@@ -126,3 +126,7 @@
 
 - add the logout in the constants folder under routes.
 - create the logout post request in the auth.ts of the routes folder.
+
+### enhancments
+
+- send the firstName and lastName for the login route.

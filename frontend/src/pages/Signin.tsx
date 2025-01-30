@@ -4,14 +4,9 @@ import { delayChildVarients } from "../animations/delayChild.variants";
 import { itemVarients } from "../animations/fadeTopToButton.variants";
 import InputFeild from "../components/InputFeild";
 import PasswordFeild from "../components/PasswordFeild";
-import { useMutation } from "@tanstack/react-query";
-import { login } from "../services/authService";
-import { useDispatch } from "react-redux";
-import { Link, NavigateFunction, useNavigate } from "react-router-dom";
-import { showToast } from "../store/slices/toastSlice";
-import { login as loginAction } from "../store/slices/authSlice";
-import { AppDispatch } from "../store";
-import React, { useRef, useEffect } from "react";
+import React from "react";
+import useAuthMutation from "../hooks/useAuthMutation";
+import { Link } from "react-router-dom";
 
 export type SignInFormData = {
   email: string;
@@ -19,17 +14,6 @@ export type SignInFormData = {
 };
 
 const SignIn: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
-
-  const emailRef = useRef<HTMLInputElement | null>(null);
-  const passwordRef = useRef<HTMLInputElement | null>(null);
-  useEffect(() => {
-    setTimeout(() => {
-      emailRef.current?.focus();
-    }, 500);
-  }, []);
-
-  const navigate: NavigateFunction = useNavigate();
   const {
     register,
     watch,
@@ -37,35 +21,12 @@ const SignIn: React.FC = () => {
     handleSubmit,
   } = useForm<SignInFormData>();
 
-  const mutation = useMutation({
-    mutationFn: login,
-    onSuccess: (data) => {
-      dispatch(showToast({ message: "Login Successful", type: "SUCCESS" }));
-      dispatch(loginAction({ userId: data._id }));
-      navigate("/");
-    },
-    onError: (err: Error) => {
-      dispatch(showToast({ message: err.message, type: "FAILURE" }));
-    },
-  });
+  const mutation = useAuthMutation("login");
 
   const onSubmit = (data: SignInFormData) => {
     mutation.mutate(data);
   };
 
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-    field: "email" | "password"
-  ) => {
-    if (field === "email" && e.key === "Tab") {
-      e.preventDefault();
-      passwordRef.current?.focus();
-    }
-    if (field === "password" && e.key === "Enter") {
-      e.preventDefault();
-      handleSubmit(onSubmit)();
-    }
-  };
   return (
     <motion.form
       initial="hidden"
@@ -86,15 +47,13 @@ const SignIn: React.FC = () => {
           name="email"
           validationRules={{ required: "This field is required" }}
           errors={errors}
-          inputRef={emailRef}
-          onKeyDown={(e) => handleKeyDown(e, "email")}
+          autoFocus={true}
         />
       </motion.div>
       <motion.div variants={itemVarients}>
         <PasswordFeild
           label="Password"
           placeholder="Enter the password"
-          type="password"
           register={register}
           name="password"
           validationRules={{
@@ -106,8 +65,6 @@ const SignIn: React.FC = () => {
           }}
           watch={watch}
           errors={errors}
-          inputRef={passwordRef}
-          onKeyDown={(e) => handleKeyDown(e, "password")}
         />
       </motion.div>
       <motion.div variants={itemVarients}>
@@ -125,7 +82,7 @@ const SignIn: React.FC = () => {
         whileTap={{ scale: 0.8, transition: { duration: 0.5 } }}
         whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
       >
-        Create User
+        Login
       </motion.button>
     </motion.form>
   );
