@@ -40,7 +40,7 @@ const Register: React.FC = () => {
             register={register}
             type="text"
             name="firstName"
-            validationRules={{ required: "This field is required" }}
+            validationRules={{ required: "FirstName field is required" }}
             errors={errors}
             autoFocus={true}
           />
@@ -53,7 +53,7 @@ const Register: React.FC = () => {
             register={register}
             type="text"
             name="lastName"
-            validationRules={{ required: "This field is required" }}
+            validationRules={{ required: "LastName field is required" }}
             errors={errors}
           />
         </motion.div>
@@ -65,7 +65,7 @@ const Register: React.FC = () => {
           register={register}
           type="email"
           name="email"
-          validationRules={{ required: "This field is required" }}
+          validationRules={{ required: "Email field is required" }}
           errors={errors}
         />
       </motion.div>
@@ -76,7 +76,7 @@ const Register: React.FC = () => {
           register={register}
           name="password"
           validationRules={{
-            required: "This field is required",
+            required: "Password field is required",
             minLength: {
               value: 6,
               message: "Password must contain at least 6 characters",
@@ -94,7 +94,7 @@ const Register: React.FC = () => {
           name="confirmPassword"
           validationRules={{
             validate: (val: string) => {
-              if (!val) return "This field is required";
+              if (!val) return "Confirm-Password field is required";
               if (watch("password") !== val) return "Passwords don't match";
               return true;
             },

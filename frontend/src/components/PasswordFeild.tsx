@@ -39,7 +39,11 @@ const PasswordFeild: React.FC<PasswordFeildProps> = ({
         className="absolute top-11 left-[550px] "
         type="button"
       >
-        {showPassword ? <FaEyeSlash /> : <FaEye />}
+        {showPassword ? (
+          <FaEyeSlash data-testid="FaEyeSlash" />
+        ) : (
+          <FaEye data-testid="FaEye" />
+        )}
       </button>
 
       {errors[name] && (

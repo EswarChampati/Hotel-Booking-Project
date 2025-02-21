@@ -6,9 +6,9 @@ const ToggleTheme: React.FC = () => {
   return (
     <button onClick={themeClickHandler}>
       {isDarkMode ? (
-        <BsMoon className="text-xl " />
+        <BsMoon className="text-xl " data-testid="moon-icon" />
       ) : (
-        <BsSun className="text-xl" />
+        <BsSun className="text-xl" data-testid="sun-icon" />
       )}
     </button>
   );

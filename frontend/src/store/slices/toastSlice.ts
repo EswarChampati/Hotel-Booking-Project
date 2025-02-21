@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type ToastState = {
+export type ToastState = {
   message: string;
   type: "SUCCESS" | "FAILURE";
   visible: boolean;

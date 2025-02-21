@@ -45,7 +45,7 @@ const SignIn: React.FC = () => {
           register={register}
           type="email"
           name="email"
-          validationRules={{ required: "This field is required" }}
+          validationRules={{ required: "Email field is required" }}
           errors={errors}
           autoFocus={true}
         />
@@ -57,7 +57,7 @@ const SignIn: React.FC = () => {
           register={register}
           name="password"
           validationRules={{
-            required: "This field is required",
+            required: "Password field is required",
             minLength: {
               value: 6,
               message: "Password must contain at least 6 characters",
@@ -78,6 +78,7 @@ const SignIn: React.FC = () => {
       <motion.button
         variants={itemVarients}
         type="submit"
+        data-testid="login button"
         className=" border self-center w-3/12 mt-3 py-2 font-semibold  rounded-2xl bg-common text-common hover:text-cyan-500 dark:hover:text-blue-400"
         whileTap={{ scale: 0.8, transition: { duration: 0.5 } }}
         whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}

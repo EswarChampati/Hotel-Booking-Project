@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { delayChildVarients as listVarients } from "../animations/delayChild.variants";
 import { itemVarients } from "../animations/fadeTopToButton.variants";
 
-const footer: React.FC = () => {
+const Footer: React.FC = () => {
   return (
     <motion.ul
       initial="hidden"
@@ -18,7 +18,7 @@ const footer: React.FC = () => {
         <Link to="/Terms and conditions">Terms and Conditions</Link>
       </motion.li>
       <motion.li variants={itemVarients}>
-        <Link to="/partners">partners</Link>
+        <Link to="/partners">Partners</Link>
       </motion.li>
       <motion.li variants={itemVarients}>
         <Link to="/Aboutus">About</Link>
@@ -27,4 +27,4 @@ const footer: React.FC = () => {
   );
 };
 
-export default footer;
+export default Footer;

@@ -37,13 +37,11 @@ const Login = async (req: Request<{}, {}, IUserReqBody>, res: Response) => {
       secure: COOKIE_SETTINGS.authCookie.secure,
       maxAge: COOKIE_SETTINGS.authCookie.maxAge,
     });
-    res
-      .status(httpStatusCode.OK)
-      .json({
-        _id: user._id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-      });
+    res.status(httpStatusCode.OK).json({
+      _id: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+    });
   } catch (err) {
     console.log((err as Error).message);
     res

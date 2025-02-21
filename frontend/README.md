@@ -71,3 +71,49 @@
 - Installed the react-icons and change the toggleTheme.tsx component and also implemented the password shown ability.
 - Modified the authSlice that when login we need to pass the userName also and similarly modify the dispatch in useAuthDispatch() and create the key userName in the localStorage and add the userName.
 -
+
+### **6. Testing Setup**:
+
+- Install **`vitest`**, **`@testing-library/react`**, **`@testing-library/jest-dom`**, **`jsdom`**.
+- Configure `vitest.config.ts` to use **Istanbul** for test coverage.
+- Create `__tests__/` in `src/`:
+  - **unit/** (Unit tests)
+  - **integration/** (Integration tests)
+  - **setup.ts** (Runs before each test suite, configured in `vitest.config.ts`).
+
+#### **Unit Testing**:
+
+##### **Component Testing**:
+
+- `AnimatedButton`
+- `Footer`
+- `ToggleTheme.tsx` (added `data-testid`)
+- `InputField`
+- `PasswordField`
+- `Header`
+- `Toast` (added `data-testid`)
+
+##### **Redux Testing**:
+
+- `authSlice`
+- `toastSlice`
+
+#### **Services Testing**:
+
+- `authServices.ts` (fully tested)
+
+##### **Hooks Testing**:
+
+- `useLogout`
+- `useTheme` (modified to sync theme across tabs using `eventListener`)
+- `useAuthMutation`
+- `useValidToken`
+
+##### **Layouts Testing**:
+
+- `UserLayout`
+
+#### **Integration Testing**:
+
+- `Register.tsx`
+- `SignIn.tsx`

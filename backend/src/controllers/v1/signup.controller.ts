@@ -34,8 +34,13 @@ const registerUser = async (
     });
 
     res.status(httpStatusCode.CREATED).json(createUser);
+    return;
   } catch (err) {
     console.log(httpStatusCode.INTERNAL_SERVER_ERROR);
+    res.status(httpStatusCode.INTERNAL_SERVER_ERROR).json({
+      msg: "Internal server error during registration",
+    });
+    return;
   }
 };
 export default registerUser;

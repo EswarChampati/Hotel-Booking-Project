@@ -34,7 +34,10 @@ const Toast: React.FC = () => {
         transition: { duration: 1, ease: "easeOut" },
       }}
     >
-      <div className="flex justify-center items-center">
+      <div
+        className="flex justify-center items-center"
+        data-testid="test-container"
+      >
         <span className="font-semibold">{message}</span>
       </div>
     </motion.div>

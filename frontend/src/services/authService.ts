@@ -25,12 +25,12 @@ export const validToken = async () => {
 };
 
 export const login = async (data: SignInFormData) => {
-  const random = await apiClient("/api/v1/auth/login", {
+  const userInfo = await apiClient("/api/v1/auth/login", {
     method: "POST",
     body: JSON.stringify(data),
     credentials: "include",
   });
-  return random;
+  return userInfo;
 };
 
 export const logout = async () => {
