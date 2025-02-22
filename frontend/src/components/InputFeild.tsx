@@ -21,19 +21,22 @@ const InputFeild: React.FC<InputFeildProps> = ({
   autoFocus,
 }) => {
   return (
-    <label className="font-bold px-2 py-1 my-10 flex-1 text-common bg-common">
-      {label}
+    <div className=" max-w-lg md:max-w-xl lg:max-w-2xl flex flex-col space-y-1 ">
+      <label className="font-bold px-2 py-1 flex-1 text-common bg-common">
+        {label}
+      </label>
       <input
         autoFocus={autoFocus}
         type={type}
         placeholder={placeholder}
-        className="border rounded font-normal w-full my-1 py-2 px-2 dark:text-black placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
+        className="border rounded font-normal w-full my-1 py-2 px-2  dark:text-black placeholder-gray-400 dark:placeholder-gray-600 
+        text-base md:text-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
         {...register(name, validationRules)}
       />
       {errors[name] && (
         <AnimatePresence>
           <motion.span
-            className="text-red-500 dark:text-red-400 "
+            className="text-red-500 dark:text-red-400 text-base"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
           >
@@ -41,7 +44,7 @@ const InputFeild: React.FC<InputFeildProps> = ({
           </motion.span>
         </AnimatePresence>
       )}
-    </label>
+    </div>
   );
 };
 export default InputFeild;

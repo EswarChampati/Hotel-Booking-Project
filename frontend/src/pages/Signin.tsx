@@ -32,10 +32,10 @@ const SignIn: React.FC = () => {
       initial="hidden"
       animate="visible"
       variants={delayChildVarients}
-      className="flex flex-col gap-4 mx-auto w-full max-w-xl"
+      className="flex flex-col gap-4 mx-auto w-full max-w-xl "
       onSubmit={handleSubmit(onSubmit)}
     >
-      <motion.h2 className="font-bold text-3xl  self-center my-4">
+      <motion.h2 className="font-bold text-2xl  self-center my-4">
         Login
       </motion.h2>
       <motion.div variants={itemVarients}>
@@ -68,7 +68,7 @@ const SignIn: React.FC = () => {
         />
       </motion.div>
       <motion.div variants={itemVarients}>
-        <span className="font-semibold">
+        <span className="font-semibold text-sm">
           Not Register?
           <Link className="mx-2 underline font-light" to="/register">
             Click here to Create an account
@@ -79,7 +79,7 @@ const SignIn: React.FC = () => {
         variants={itemVarients}
         type="submit"
         data-testid="login button"
-        className=" border self-center w-3/12 mt-3 py-2 font-semibold  rounded-2xl bg-common text-common hover:text-cyan-500 dark:hover:text-blue-400"
+        className=" border sm:w-3/5 md:w-1/3 self-center w-3/12 mt-3 py-2 font-semibold  rounded-2xl bg-common text-common hover:text-cyan-500 dark:hover:text-blue-400"
         whileTap={{ scale: 0.8, transition: { duration: 0.5 } }}
         whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
       >

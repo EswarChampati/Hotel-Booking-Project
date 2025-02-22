@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       initial="hidden"
       animate="visible"
       variants={listVarients}
-      className="flex text-xl justify-around px-8 pb-16 pt-4 font-semiboldlight border-t-2 bg-common text-common"
+      className="flex flex-col items-center gap-y-2 text-xl justify-around pb-4 md:pb-6  pt-4 md:pt-6font-semiboldlight border-t-2 bg-common text-common md:flex-row "
     >
       <motion.li variants={itemVarients}>
         <Link to="/policy">Privacy policy</Link>

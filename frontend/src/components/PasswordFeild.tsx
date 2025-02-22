@@ -26,25 +26,30 @@ const PasswordFeild: React.FC<PasswordFeildProps> = ({
     setShowPassword((prev) => !prev);
   };
   return (
-    <label className="font-bold px-2 py-1 flex-1 text-common bg-common relative">
-      {label}
-      <input
-        placeholder={placeholder}
-        type={showPassword ? "text" : "password"}
-        className="border-2 rounded font-normal w-full  my-1 py-2 px-2 dark:text-black placeholder-gray-400 dark:placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
-        {...register(name, validationRules)}
-      />
-      <button
-        onClick={togglePasswordInvisibility}
-        className="absolute top-11 left-[550px] "
-        type="button"
-      >
-        {showPassword ? (
-          <FaEyeSlash data-testid="FaEyeSlash" />
-        ) : (
-          <FaEye data-testid="FaEye" />
-        )}
-      </button>
+    <div className="max-w-lg md:max-w-xl lg:max-w-2xl flex flex-col space-y-1 ">
+      <label className="font-bold text-common bg-common relative">
+        {label}
+      </label>
+      <div className="relative">
+        <input
+          placeholder={placeholder}
+          type={showPassword ? "text" : "password"}
+          className="border-2 rounded font-normal w-full  my-1 py-2 px-2 text-base dark:text-black  placeholder-gray-400
+           dark:placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
+          {...register(name, validationRules)}
+        />
+        <button
+          onClick={togglePasswordInvisibility}
+          className="absolute  inset-y-0 right-3 flex items-center text-gray-600"
+          type="button"
+        >
+          {showPassword ? (
+            <FaEyeSlash data-testid="FaEyeSlash" size={18} />
+          ) : (
+            <FaEye data-testid="FaEye" size={18} />
+          )}
+        </button>
+      </div>
 
       {errors[name] && (
         <AnimatePresence>
@@ -57,7 +62,7 @@ const PasswordFeild: React.FC<PasswordFeildProps> = ({
           </motion.span>
         </AnimatePresence>
       )}
-    </label>
+    </div>
   );
 };
 

@@ -21,8 +21,8 @@ const Toast: React.FC = () => {
 
   const styles =
     type === "SUCCESS"
-      ? "fixed top-4 right-4 z-50 p-4 rounded-md  text-white max-w-md bg-slate-600 dark:bg-slate-300 dark:text-gray-800"
-      : "fixed top-4 right-4 z-50 p-4 rounded-md text-white max-w-md bg-red-400 dark:bg-red-600";
+      ? "fixed top-4 right-4 md:right-4 md:left-auto left-1/2 z-50 p-4 rounded-md  text-white max-w-md bg-slate-600 dark:bg-slate-300 dark:text-gray-800"
+      : "fixed top-4 right-4 md:right-4 md:left-auto left-1/2 z-50 p-4 rounded-md text-white max-w-md bg-red-400 dark:bg-red-600";
 
   return visible === false ? null : (
     <motion.div
@@ -38,7 +38,7 @@ const Toast: React.FC = () => {
         className="flex justify-center items-center"
         data-testid="test-container"
       >
-        <span className="font-semibold">{message}</span>
+        <span className="font-semibold  text-sm md:text-base">{message}</span>
       </div>
     </motion.div>
   );

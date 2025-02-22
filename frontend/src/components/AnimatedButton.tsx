@@ -14,7 +14,8 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
 }) => {
   return (
     <motion.button
-      className=" text-xl rounded-lg py-2 px-3 text-common bg-common button-hover"
+      className=" text-lg md:text-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-lg py-2 px-3
+       text-common bg-common button-hover"
       whileHover={{
         scale: 1.1,
         transition: { duration: 0.3 },
@@ -25,7 +26,9 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       }}
       onClick={onClick}
     >
-      <Link to={to}>{children}</Link>
+      <Link className="block w-full h-full text-center" to={to}>
+        {children}
+      </Link>
     </motion.button>
   );
 };

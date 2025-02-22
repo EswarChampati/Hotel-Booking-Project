@@ -27,13 +27,13 @@ const Register: React.FC = () => {
       animate="visible"
       variants={delayChildVarients}
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col mx-auto  w-full max-w-xl"
+      className="flex flex-col mx-auto  w-full max-w-xl px-6 "
     >
-      <h1 className="font-bold text-3xl flex-start py-3 self-center mb-4">
+      <h1 className="font-bold  flex-start py-3 self-center mb-6 text-2xl">
         Create an Account
       </h1>
       <div className="flex flex-col md:flex-row gap-4 text-gray-800">
-        <motion.div variants={itemVarients}>
+        <motion.div variants={itemVarients} className="w-full md:w-1/2">
           <InputFeild
             label="First Name"
             placeholder="Enter the First Name"
@@ -46,7 +46,7 @@ const Register: React.FC = () => {
           />
         </motion.div>
 
-        <motion.div variants={itemVarients}>
+        <motion.div variants={itemVarients} className="w-full md:w-1/2">
           <InputFeild
             label="Last Name"
             placeholder="Enter the Last Name"
@@ -104,7 +104,7 @@ const Register: React.FC = () => {
         />
       </motion.div>
       <motion.button
-        className=" border self-center w-3/12 mt-3 py-2 font-semibold  rounded-2xl bg-common text-common hover:text-cyan-500 dark:hover:text-blue-400"
+        className="border self-center w-full sm:w-1/4 mt-4 py-2 font-semibold rounded-lg bg-common text-common hover:text-cyan-500 dark:hover:text-blue-400"
         whileTap={{ scale: 0.8, transition: { duration: 0.5 } }}
         whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
       >
