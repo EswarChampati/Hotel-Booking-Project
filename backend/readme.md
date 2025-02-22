@@ -144,3 +144,60 @@
 - Modify `dotenv.config()` in `index.ts` based on scripts.
 
 ---
+
+## 6 deployment
+
+### **6.1. Backend Build Preparation**
+
+#### **6.1.1 Update TypeScript Configuration**
+
+- Ensure `tsconfig.json` has `outDir` and `rootDir` properly set.
+- Exclude test files from the build by creating `tsconfig.build.json`:
+  - Extend `tsconfig.json`.
+  - Exclude test folders.
+  - Use `tsconfig.build.json` when running `npm run build`.
+
+#### **6.1.2 Build Commands**
+
+- Verify `package.json` contains the correct commands for building the backend.
+- Run the necessary build commands.
+
+### **6.2. Serve Static Files**
+
+- Modify `app.ts` to include `express.static` middleware to serve frontend static files.
+- Rebuild the backend after modifying `app.ts`.
+
+### **6.3. Database Access Configuration**
+
+- Add **Render.com’s IP address** to the database network access.
+- Ensure Render has permission to access the database.
+
+### **6.4. Deploy on Render**
+
+### **6.4.1 Sign Up & Connect Repository**
+
+1. Sign up to **Render** using your GitHub account.
+2. Click on **New** → **Build and Deploy from Git Repository**.
+3. Select the repository for deployment.
+
+### **6.4.2 Configure Build Commands**
+
+- Set up the build command to:
+  ```sh
+  cd frontend && npm install && npm run build && cd ../backend && npm run build
+  ```
+- Set up the start command to:
+  ```sh
+  cd backend && npm run start
+  ```
+
+### **6.4.3 Configure Environment Variables**
+
+- In the **Advanced** tab, add environment variables.
+- Ensure to include `NODE_VERSION` to match the local machine’s version.
+
+### **6.4.4 Deploy the Service**
+
+1. Click **Create Service**.
+2. Wait for the deployment to complete.
+3. Once the service is live, obtain the generated URL.

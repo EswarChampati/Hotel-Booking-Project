@@ -11,8 +11,8 @@ vi.mock("../../hooks/useAuthMutation", () => ({
   }),
 }));
 const mockNavigate = vi.fn();
-vi.mock("react-router-dom", async (importOriginal) => {
-  const actual = await importOriginal();
+vi.mock("react-router-dom", async () => {
+  const actual = await import("react-router-dom");
   return {
     ...actual,
     useNavigate: () => mockNavigate,

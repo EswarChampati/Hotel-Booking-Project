@@ -47,7 +47,9 @@ describe("Register component", () => {
     expect(
       screen.getByPlaceholderText(/Enter the Email Address/i)
     ).toBeInTheDocument();
-    expect(screen.getByLabelText(/^Password$/i)).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText("Enter the password")
+    ).toBeInTheDocument();
     expect(
       screen.getByPlaceholderText(/Re-Enter the password/i)
     ).toBeInTheDocument();
@@ -58,7 +60,7 @@ describe("Register component", () => {
     const firstName = screen.getByPlaceholderText(/Enter the First Name/i);
     const lastName = screen.getByPlaceholderText(/Enter the Last Name/i);
     const email = screen.getByPlaceholderText(/Enter the Email Address/i);
-    const password = screen.getByLabelText(/^Password$/i);
+    const password = screen.getByPlaceholderText("Enter the password");
     const confirmPassword = screen.getByPlaceholderText(
       /Re-Enter the password/i
     );

@@ -117,3 +117,28 @@
 
 - `Register.tsx`
 - `SignIn.tsx`
+
+## 6.deployments
+
+#### **6.1. Build Command Verification**
+
+- Ensure the `package.json` contains the correct build command for the project.
+
+#### **6.2. Exclude Tests from Build**
+
+- Create `tsconfig.build.json` and configure it to:
+  - Extend `tsconfig.json`
+  - Exclude the `tests` folder
+- Update the `package.json` build script to use `tsconfig.build.json`.
+
+#### **6.3. Backend Base URL Configuration**
+
+- Modify `api-client.ts`:
+  - Set the backend base URL as an empty string (`""`) since both the frontend and backend will be served from the same URL.
+
+#### **6.4. Rebuild Frontend**
+
+- Since `api-client.ts` has been modified, rebuild the frontend using:
+  ```sh
+  npm run build
+  ```
