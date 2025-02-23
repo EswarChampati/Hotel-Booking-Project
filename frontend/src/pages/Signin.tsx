@@ -23,7 +23,7 @@ const SignIn: React.FC = () => {
 
   const mutation = useAuthMutation("login");
 
-  const onSubmit = (data: SignInFormData) => {
+  const onSubmit = (data) => {
     mutation.mutate(data);
   };
 
@@ -63,7 +63,6 @@ const SignIn: React.FC = () => {
               message: "Password must contain at least 6 characters",
             },
           }}
-          watch={watch}
           errors={errors}
         />
       </motion.div>

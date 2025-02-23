@@ -82,7 +82,6 @@ const Register: React.FC = () => {
               message: "Password must contain at least 6 characters",
             },
           }}
-          watch={watch}
           errors={errors}
         />
       </motion.div>
@@ -99,7 +98,6 @@ const Register: React.FC = () => {
               return true;
             },
           }}
-          watch={watch}
           errors={errors}
         />
       </motion.div>

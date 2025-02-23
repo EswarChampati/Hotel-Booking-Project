@@ -8,7 +8,6 @@ type PasswordFeildProps = {
   register: any;
   name: string;
   validationRules: object;
-  watch: any;
   errors: any;
 };
 
@@ -18,7 +17,6 @@ const PasswordFeild: React.FC<PasswordFeildProps> = ({
   register,
   name,
   validationRules,
-  watch,
   errors,
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
