@@ -201,3 +201,6 @@
 1. Click **Create Service**.
 2. Wait for the deployment to complete.
 3. Once the service is live, obtain the generated URL.
+   problems causes solved ignore the unit and integrations in the github and ignore the vitest.config.ts by excluding that file in the tsconfig.build.json
+
+---
