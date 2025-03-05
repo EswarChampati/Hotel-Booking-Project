@@ -29,8 +29,7 @@ const InputFeild: React.FC<InputFeildProps> = ({
         autoFocus={autoFocus}
         type={type}
         placeholder={placeholder}
-        className="border rounded font-normal w-full my-1 py-2 px-2  dark:text-black placeholder-gray-400 dark:placeholder-gray-600 
-        text-base md:text-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
+        className=" font-normal w-full form-control text-base md:text-lg "
         {...register(name, validationRules)}
       />
       {errors[name] && (

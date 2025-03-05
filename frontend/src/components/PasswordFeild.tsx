@@ -32,8 +32,7 @@ const PasswordFeild: React.FC<PasswordFeildProps> = ({
         <input
           placeholder={placeholder}
           type={showPassword ? "text" : "password"}
-          className="border-2 rounded font-normal w-full  my-1 py-2 px-2 text-base dark:text-black  placeholder-gray-400
-           dark:placeholder-gray-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
+          className=" font-normal w-full text-base form-control"
           {...register(name, validationRules)}
         />
         <button

@@ -145,3 +145,22 @@
   problems causes solved ignore the unit and integrations in the github
 
 ---
+
+### 7.Add hotel component
+
+- In types changed the user.d.ts to auth.d.ts and in the user.d.ts we create the hotel form data type.
+- In the components folder created the forms folder in which created the manageHotelForm folder and in that there is a manageHotelForm.tsx which combined al lteh addHotel component in that.
+- In pages created the addHotel.tsx which indicated the add-hotel route in frontend.
+- Configured that pages.addHoteltsx to the app.tsx by remoing the path=\* which casues problem i dont know why.
+- Create the HotelDetailsSection.tsx file whiich contains the hotel name, city, country, description, price per night , star rating things.
+- Create the formInput.tsx in the manageHotelFOrm folder which is resuable component for the name,city,country,price per night.
+- Create the reuasble tailwind utilities in the index.css with the name of th form-control and use that in the InputField.tsx, passwordField.tsx, HotelDetailsSection.tsx, formInput.tsx
+- Create the error-text custom tailwind class in the index.css and use it in the form for the span tag of error. and modify in the InputField.tsx, passwordField.tsx, HotelDetailsSection.tsx, formInput.tsx
+- Create the TypeSection.tsx which helps to say what type of hotel it is.
+- Create the FacilitiesSection.tsx which helps to say what are all the facilites available in the hotel
+- Create the GuestSection.tsx which is used to say how many members the room is for.
+- Create the ImageSection.tsx which is used to upload the images.
+- In the services create the UserService.tsx to call the backroute via api-client.ts.
+- Modify the api-client in such a way that it should send the content-type:application/json if the payload is not formdata type.
+- In the addHote.tsx page use the useMutation to call the backend route and also toast message should be displayed.
+- In the ManageHotelForm.tsx component create the formfeed for handling the form data.

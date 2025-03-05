@@ -204,3 +204,54 @@
    problems causes solved ignore the unit and integrations in the github and ignore the vitest.config.ts by excluding that file in the tsconfig.build.json
 
 ---
+
+## 7. Adding Hotels
+
+#### 7.1. **Create Hotel Interface**
+
+- Create `src/interface/hotel.ts` to define the structure expected by Mongoose for inserting hotel documents.
+
+#### 7.2. **Create Hotel Model**
+
+- Create `src/models/hotel.model.ts` to define the Mongoose model using the hotel interface.
+
+#### 7.3. **Create Hotel Validation Schema**
+
+- Create `src/validations/v1/hotel.validation.ts` to define the Zod validation schema for the hotel data.
+
+#### 7.4. **Create Middleware for Validation**
+
+- Create `src/middlewares/validateHotel.ts` to ensure the request body contains valid data. In this convert the string to the number where adultCount,childCount,pricePerNight, starRating because they can only be sent as string in the Formdata object.
+
+#### 7.5. **Create Middleware for File Upload Restriction**
+
+- Create `src/middlewares/upload.ts` to restrict file size and handle file uploads.
+
+#### 7.6. **Define Hotel Routes**
+
+- Add a new route in `src/routes/v1/user.ts` for handling hotel-related requests.
+
+#### 7.7. **Create Utility for Image Upload**
+
+- Create `src/utils/uploadImage.ts` to manage image uploads efficiently.
+
+#### 7.8. **Create Hotel Controller**
+
+- Create `src/controller/v1/hotel.controller.ts` to handle database interactions for hotel data.
+
+#### 7.9. **Update Routes**
+
+- In `src/routes/v1/user.ts`:
+
+  - Add route path.
+  - Use `validateToken` middleware.
+  - Use `upload.array()` to handle multiple file uploads. So that req.body can be used by the validateHotel
+  - Use `validateHotel` middleware to validate the request body.
+
+  - Call the appropriate controller function.
+
+#### 7.10. **Configure Routes in App**
+
+- In `src/app.ts`, register the `userRouter` to the base route.
+
+---

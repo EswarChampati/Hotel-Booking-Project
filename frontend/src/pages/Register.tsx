@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import InputFeild from "../components/InputFeild";
 import PasswordFeild from "../components/PasswordFeild";
-import { RegisterFormData } from "../types/user";
+import { RegisterFormData } from "../types/auth";
 import { delayChildVarients } from "../animations/delayChild.variants";
 import { itemVarients } from "../animations/fadeTopToButton.variants";
 import useAuthMutation from "../hooks/useAuthMutation";

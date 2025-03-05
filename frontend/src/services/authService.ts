@@ -1,5 +1,5 @@
 import apiClient from "../api-client";
-import { RegisterFormData, UserResponse } from "../types/user";
+import { RegisterFormData, UserResponse } from "../types/auth";
 import { SignInFormData } from "../pages/Signin";
 
 export const createUser = async (

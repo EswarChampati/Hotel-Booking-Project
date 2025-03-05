@@ -1,16 +1,13 @@
-export type RegisterFormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
-
-export type UserResponse = {
-  _id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  password: string;
-  __v: number;
+export type HotelFormData = {
+  name: string;
+  city: string;
+  country: string;
+  description: string;
+  type: string;
+  pricePerNight: string;
+  starRating: string;
+  facilities: string[];
+  imageFiles: FileList;
+  adultCount: number;
+  childCount: number;
 };
