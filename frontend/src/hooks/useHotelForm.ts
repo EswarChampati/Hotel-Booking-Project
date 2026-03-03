@@ -1,9 +1,16 @@
 import { useForm } from "react-hook-form";
 import { HotelFormData } from "./../types/user";
+import { useEffect } from "react";
 
-const useHotelForm = (onSave: (data: FormData) => void) => {
+const useHotelForm = (
+  onSave: (data: FormData) => void,
+  hotel: HotelFormData
+) => {
   const formMethods = useForm<HotelFormData>();
-  const { handleSubmit } = formMethods;
+  const { handleSubmit, reset } = formMethods;
+  useEffect(() => {
+    reset(hotel);
+  }, [hotel, reset]);
 
   const onSubmit = handleSubmit((FormDataJSON: HotelFormData) => {
     const formData = new FormData();

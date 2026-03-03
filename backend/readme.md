@@ -255,3 +255,8 @@
 - In `src/app.ts`, register the `userRouter` to the base route.
 
 ---
+
+## 8 getting hotels, getting specfic hotel hotels,
+
+- In routes/v1/user.ts add the router.get request for the getting all the specific user addded hotels.
+- In routes/v1/user.ts add the router.get request for getting the specific hotel based on \_id.

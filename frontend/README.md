@@ -118,7 +118,7 @@
 - `Register.tsx`
 - `SignIn.tsx`
 
-## 6.deployments
+### 6.deployments
 
 #### **6.1. Build Command Verification**
 
@@ -164,3 +164,21 @@
 - Modify the api-client in such a way that it should send the content-type:application/json if the payload is not formdata type.
 - In the addHote.tsx page use the useMutation to call the backend route and also toast message should be displayed.
 - In the ManageHotelForm.tsx component create the formfeed for handling the form data.
+
+  ***
+
+### myHotels
+
+- In types/user.d.ts add the hotel route response type which we will import from the backend interfaces folder
+- In the services folder under hte userService.ts we will call the hotel route of the backend
+- In pages folder Create the myHotels.tsx component and use the useQuery to call the backend userService.
+- create the HotelInfo.tsx file in the components for the city,counry,price, etc
+- create the HotelCard.tsx file in the components folder for the each hotel card.
+- create the StyledButton.tsx in the components folder for the button
+- Move the above three files to the hotels folder in the component.
+- Move the InputField.tsx and PasswordFeild.tsx to the Authetication folder in the component.
+- In services/userServie.ts add the fetchHotelById to call the backend route which returns the backend route that returns the specific hotel based on the id.
+- In pages create the EditMyHotel.tsx which is used to edit the specific hotel info. after gettnig the data from the backend we will pass it to the manageHotelForm.tsx by passing the props of hotel in the manageHotelform.
+- we will pass that hotel to the useHotelForm.ts and we will modify the get the reset function from the formMEthosd and we will call that in the useEffect.
+- Configure the EditHotel.tsx in the app.tsx.
+- In types/user for the hotelFormdata add the imageURL's which is the string so that we can use the watch property on that in the ImageSection.tsx.

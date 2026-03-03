@@ -13,6 +13,8 @@ import SignIn from "./pages/Signin";
 import AddHotel from "./pages/AddHotel";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
+import MyHotels from "./pages/MyHotels";
+import EditMyHotel from "./pages/EditMyHotel";
 
 const pageVariants: Variants = {
   initial: { x: "100%", opacity: 0 },
@@ -89,6 +91,26 @@ function App() {
                 <PageWrapper>
                   <UserLayout>
                     <AddHotel />
+                  </UserLayout>
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/my-hotels"
+              element={
+                <PageWrapper>
+                  <UserLayout>
+                    <MyHotels />
+                  </UserLayout>
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/edit-hotel/:hotelID"
+              element={
+                <PageWrapper>
+                  <UserLayout>
+                    <EditMyHotel />
                   </UserLayout>
                 </PageWrapper>
               }

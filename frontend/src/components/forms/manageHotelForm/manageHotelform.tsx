@@ -6,14 +6,16 @@ import FacilitiesSection from "./FacilitiesSection";
 import GuestSection from "./GuestSection";
 import ImageSection from "./ImageSection";
 import { motion } from "framer-motion";
+import { HotelFormData } from "../../../types/user";
 
 interface Props {
+  hotel?: HotelFormData;
   onSave: (HotelFormData: FormData) => void;
   isPending: boolean;
 }
 
-const ManageHotelform: React.FC<Props> = ({ onSave, isPending }) => {
-  const { formMethods, onSubmit } = useHotelForm(onSave);
+const ManageHotelform: React.FC<Props> = ({ onSave, isPending, hotel }) => {
+  const { formMethods, onSubmit } = useHotelForm(onSave, hotel);
   return (
     <FormProvider {...formMethods}>
       <form className="flex flex-col" onSubmit={onSubmit}>
